@@ -12,9 +12,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 @XmlRootElement(name="Employee")
 @JacksonXmlRootElement(localName = "Employee")
+@ApiModel(description = "All details about the Employee. ")
 public class Employee implements Serializable{
 	/**
 	 * 
@@ -25,12 +29,15 @@ public class Employee implements Serializable{
 	@Id
 	@XmlElement
 	@JacksonXmlProperty(isAttribute = true)
+	@ApiModelProperty(notes = "The database generated employee ID")
 	private long id;
 	@XmlElement
 	@JacksonXmlProperty
+	@ApiModelProperty(notes = "The employee  name")
 	private String name;
 	@XmlElement
 	@JacksonXmlProperty
+	@ApiModelProperty(notes = "The employee department name")
 	private String dept;
 
 	public String getName() {
